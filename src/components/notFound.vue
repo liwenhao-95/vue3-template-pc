@@ -1,14 +1,10 @@
 <script setup lang='ts'>
-import { onMounted, ref } from 'vue'
-
-onMounted(() => {
-
-})
+import { ref } from 'vue'
 </script>
 
 <template>
   <div>
-    <el-button>Default</el-button>
+    404
   </div>
 </template>
 

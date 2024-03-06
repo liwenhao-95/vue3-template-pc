@@ -1,11 +1,5 @@
 <script setup lang='ts'>
 import { ref } from 'vue'
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from '@element-plus/icons-vue'
 
 import { useAppStore } from '@/stores/app'
 import SubMenu from './subMenu.vue'
@@ -14,20 +8,30 @@ const store = useAppStore()
 
 const isCollapse = ref(false)
 const handleOpen = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  // console.log(key, keyPath)
 }
 const handleClose = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  // console.log(key, keyPath)
 }
+
+const selectMenu = (key: string, keyPath: string[], item: {index: string; indexPath: string[]; route: string}) => {
+  console.log(key, 'key')
+  console.log(keyPath, 'keyPath')
+  console.log(item, 'item')
+}
+
+
 </script>
 
 <template>
   <el-menu
-    default-active="2"
+    :default-active="store.menuActive"
     class="el-menu-vertical-demo"
     :collapse="isCollapse"
     @open="handleOpen"
     @close="handleClose"
+    @select="selectMenu"
+    router
   >
     <SubMenu :data="store.menus" />
   </el-menu>
@@ -39,4 +43,4 @@ const handleClose = (key: string, keyPath: string[]) => {
   // min-height: 400px;
   height: 100%;
 }
-</style>./SubMenu.vue./subMenu.vue./bubMenu.vue./bubMenu.vue
+</style>

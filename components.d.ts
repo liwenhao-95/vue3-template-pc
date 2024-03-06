@@ -28,10 +28,11 @@ declare module 'vue' {
     IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     Menu: typeof import('./src/components/layout/menu.vue')['default']
+    NotFound: typeof import('./src/components/notFound.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     subMenu: typeof import('./src/components/layout/ subMenu.vue')['default']
-    SubMenu: typeof import('./src/components/layout/SubMenu.vue')['default']
+    SubMenu: typeof import('./src/components/layout/subMenu.vue')['default']
     TheWelcome: typeof import('./src/components/TheWelcome.vue')['default']
     WelcomeItem: typeof import('./src/components/WelcomeItem.vue')['default']
   }

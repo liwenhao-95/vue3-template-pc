@@ -1,12 +1,7 @@
-import { ref, computed } from 'vue'
+import { ref, computed, markRaw } from 'vue'
 import { defineStore } from 'pinia'
 import type { IMenus } from '@/types/types'
-import {
-  Document,
-  Menu as IconMenu,
-  Location,
-  Setting,
-} from '@element-plus/icons-vue'
+import { HomeFilled, Notebook, Reading, User } from '@element-plus/icons-vue'
 
 export const useAppStore = defineStore('app', () => {
   const count = ref(0)
@@ -15,16 +10,26 @@ export const useAppStore = defineStore('app', () => {
     count.value++
   }
 
-  const menus = ref<IMenus[]>([
-    {name: '首页', icon: Document, path: 'home', subMenus: []},
-    {name: '个人信息', icon: Location, path: 'info', subMenus: [
-      {name: '个人信息——1', path: 'info_1', icon: Location, subMenus: [
-        {name: 'hh', path: 'info_12', icon: '', subMenus: []}
-      ]},
-      {name: '个人信息——2', path: 'info_2', icon: '', subMenus: []}
-    ]},
-    {name: '我的', icon: Setting, path: 'mine', subMenus: []},
+  const menuActive = ref<string>('/home')
+
+  const menus = markRaw<IMenus[]>([
+    { name: '首页', icon: HomeFilled, path: '/home', subMenus: [] },
+    {
+      name: '博客',
+      icon: Notebook,
+      path: '/blog',
+      subMenus: [
+        {
+          name: '测试层级测试层级测试层级测试层级',
+          path: '/blog/test_level',
+          icon: Notebook,
+          subMenus: [{ name: '最后一层测试长度最后一层测试长度', path: '/blog/test_level/last_level', icon: Notebook, subMenus: [] }]
+        },
+        { name: '好文推荐', path: '/blog/recommend_article', icon: Reading, subMenus: [] }
+      ]
+    },
+    { name: '我的', icon: User, path: '/mine', subMenus: [] }
   ])
 
-  return { count, doubleCount, increment, menus }
+  return { count, doubleCount, increment, menus, menuActive }
 })
