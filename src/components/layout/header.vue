@@ -45,7 +45,7 @@ const toggleDark = useToggle(isDark)
         </el-switch>
         <el-dropdown @command="changeLanguage">
           <span class="el-dropdown-link">
-            {{ locale === 'zhCh' ? '语言' : 'Language' }}
+            {{ locale === 'zhCh' ? '中文' : 'English' }}
             <el-icon class="el-icon--right">
               <arrow-down />
             </el-icon>
@@ -57,7 +57,6 @@ const toggleDark = useToggle(isDark)
             </el-dropdown-menu>
           </template>
         </el-dropdown>
-        <!-- <el-switch v-model="value1"> -->
       </el-space>
     </template>
   </el-page-header>

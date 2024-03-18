@@ -39,10 +39,10 @@ const getLocale = () => {
   height: 100vh;
   .header {
     background-color: var(--vt-c-white);
+    border-bottom: 1px solid var(--el-menu-border-color);
   }
   .container {
-    height: calc(100vh - 68px);
-    margin-top: 8px;
+    height: calc(100vh - 60px);
     .content {
       padding: 16px;
       margin: 0 8px;

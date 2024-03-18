@@ -5,13 +5,14 @@ import { useAppStore } from '@/stores/app'
 import SubMenu from './subMenu.vue'
 
 const store = useAppStore()
+const bottomRef  = ref<HTMLDivElement | null>(null)
 
-const isCollapse = ref(false)
+const isCollapse = ref<boolean>(false)
 const handleOpen = (key: string, keyPath: string[]) => {
-  // console.log(key, keyPath)
+  console.log(key, keyPath)
 }
 const handleClose = (key: string, keyPath: string[]) => {
-  // console.log(key, keyPath)
+  console.log(key, keyPath)
 }
 
 const selectMenu = (key: string, keyPath: string[], item: {index: string; indexPath: string[]; route: string}) => {
@@ -20,13 +21,19 @@ const selectMenu = (key: string, keyPath: string[], item: {index: string; indexP
   console.log(item, 'item')
 }
 
+const expand = () => {
+  isCollapse.value = !isCollapse.value
+  if (bottomRef.value) {
+    bottomRef.value.style.width = isCollapse.value ? 'calc(var(--el-menu-icon-width) + var(--el-menu-base-level-padding)* 2)' : '200px'
+  }
+}
 
 </script>
 
 <template>
   <el-menu
     :default-active="store.menuActive"
-    class="el-menu-vertical-demo"
+    class="menu"
     :collapse="isCollapse"
     @open="handleOpen"
     @close="handleClose"
@@ -35,12 +42,34 @@ const selectMenu = (key: string, keyPath: string[], item: {index: string; indexP
   >
     <SubMenu :data="store.menus" />
   </el-menu>
+  <div class="buttom" ref="bottomRef">
+    <el-icon :size="20" @click="expand" :class="isCollapse ? 'collapse' : ''">
+      <Fold v-if="!isCollapse"></Fold>
+      <Expand v-else></Expand>
+    </el-icon>
+  </div>
 </template>
 
 <style lang='scss' scoped>
-.el-menu-vertical-demo:not(.el-menu--collapse) {
+.menu {
+  height: calc(100% - 49px);
+}
+.menu:not(.el-menu--collapse) {
   width: 200px;
-  // min-height: 400px;
-  height: 100%;
+}
+
+.buttom {
+  height: 48px;
+  text-align: right;
+  line-height: 48px;
+  border-right: 1px solid var(--el-menu-border-color);
+  border-top: 1px solid var(--el-menu-border-color);
+  box-sizing: border-box;
+  transition: 0.3s width ease-in-out;
+  overflow: hidden;
+}
+
+.buttom:not(.el-menu--collapse) {
+  width: 200px;
 }
 </style>
