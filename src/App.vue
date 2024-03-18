@@ -1,16 +1,21 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import zhCn from 'element-plus/es/locale/lang/zh-cn'
-import { ref } from 'vue'
+import { RouterView } from 'vue-router'
+
+import zhCh from 'element-plus/es/locale/lang/zh-cn'
+import en from 'element-plus/es/locale/lang/en'
 import Menu from '@/components/layout/menu.vue'
 import Header from '@/components/layout/header.vue'
-const locale = ref(zhCn)
 
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n()
+
+const getLocale = () => {
+  return locale.value === 'zhCh' ? zhCh : en
+}
 </script>
 
 <template>
-  <el-config-provider :locale="locale">
-    <!-- <RouterView /> -->
+  <el-config-provider :locale="getLocale()">
     <div class="common-layout">
       <el-container>
         <el-header class="header">
@@ -20,7 +25,6 @@ const locale = ref(zhCn)
           <el-aside width="200px">
             <Menu></Menu>
           </el-aside>
-          <!-- <el-main>Main</el-main> -->
           <el-main class="content">
             <RouterView />
           </el-main>
@@ -30,7 +34,7 @@ const locale = ref(zhCn)
   </el-config-provider>
 </template>
 
-<style scoped lang="less">
+<style scoped lang="scss">
 .common-layout {
   height: 100vh;
   .header {
@@ -46,4 +50,4 @@ const locale = ref(zhCn)
     }
   }
 }
-</style>@/components/layout/Menu.vue
+</style>

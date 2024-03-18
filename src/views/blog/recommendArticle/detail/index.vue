@@ -8,6 +8,6 @@ import { ref } from 'vue'
   </div>
 </template>
 
-<style lang='less' scoped>
+<style lang='scss' scoped>
 
 </style>

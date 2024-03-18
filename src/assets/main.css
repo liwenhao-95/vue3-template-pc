@@ -1,6 +1,6 @@
-@import './base.css';
+/* @import './base.css'; */
 
-html,
+/* html,
 body,
 div,
 dl,
@@ -41,27 +41,13 @@ em {
 }
 #app {
   height: 100%;
-  background-color: #e6eaf0;
 }
 html,
 body {
   min-height: 100vh;
-}
+} */
 
 /* :root {
-  --dark-bg: #00142d;
-  --dark-color: #ffffff80;
-  --dark-slide-bg: #0d203a;
-
-  --light-bg: #ffffff;
-  --light-color: #00142d;
-  --light-slide-bg: #f9fafb;
-
-  --theme-color: #035bec;
-}
-
-:root {
-  --zoom: 1;
-  --100vh: calc(100vh / var(--zoom));
+  --el-color-primary: green;
 } */
 

@@ -1,15 +1,9 @@
-import { ref, computed, markRaw } from 'vue'
+import { ref, markRaw } from 'vue'
 import { defineStore } from 'pinia'
 import type { IMenus } from '@/types/types'
 import { HomeFilled, Notebook, Reading, User } from '@element-plus/icons-vue'
 
 export const useAppStore = defineStore('app', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
-
   const menuActive = ref<string>('/home')
 
   const menus = markRaw<IMenus[]>([
@@ -31,5 +25,5 @@ export const useAppStore = defineStore('app', () => {
     { name: '我的', icon: User, path: '/mine', subMenus: [] }
   ])
 
-  return { count, doubleCount, increment, menus, menuActive }
+  return { menus, menuActive }
 })

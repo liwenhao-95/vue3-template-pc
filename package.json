@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --open",
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
@@ -14,9 +14,11 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
+    "@vueuse/core": "^10.9.0",
     "element-plus": "^2.6.0",
     "pinia": "^2.1.7",
     "vue": "^3.4.15",
+    "vue-i18n": "^9.10.1",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
@@ -29,9 +31,9 @@
     "@vue/tsconfig": "^0.5.1",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
-    "less": "^4.2.0",
     "npm-run-all2": "^6.1.1",
     "prettier": "^3.0.3",
+    "sass": "^1.71.1",
     "typescript": "~5.3.0",
     "unplugin-auto-import": "^0.17.5",
     "unplugin-vue-components": "^0.26.0",

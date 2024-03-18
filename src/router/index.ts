@@ -34,10 +34,9 @@ const routes = [
       {
         path: 'recommend_article',
         name: 'recommend_article',
-        // component: RecommendArticle,
         children: [
           {
-            name: '',
+            name: 'recommend_article',
             path: '',
             component: RecommendArticle,
           },

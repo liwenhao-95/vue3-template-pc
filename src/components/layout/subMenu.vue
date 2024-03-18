@@ -30,7 +30,7 @@ defineProps<{
   </template>
 </template>
 
-<style lang='less' scoped>
+<style lang='scss' scoped>
 .menuTitle {
   overflow: hidden;
   text-overflow: ellipsis;
