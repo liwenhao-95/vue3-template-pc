@@ -2,10 +2,12 @@
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router'
 import { useDark, useToggle } from '@vueuse/core'
+import useSwitchThemes from '@/hooks/useSwitchThemes';
 
 const { locale } = useI18n()
-
 const router = useRouter()
+
+const { switchTheme } = useSwitchThemes();
 
 const goBack = () => {
   console.log('go back')
@@ -15,6 +17,11 @@ const goBack = () => {
 const changeLanguage = (command: string) => {
   locale.value = command;
   localStorage.setItem('language', command)
+}
+
+const changeStyle = (command: string) => {
+  localStorage.setItem('theme', command)
+  switchTheme(command)
 }
 
 const isDark = useDark()
@@ -54,6 +61,22 @@ const toggleDark = useToggle(isDark)
             <el-dropdown-menu>
               <el-dropdown-item command="zhCh">中文</el-dropdown-item>
               <el-dropdown-item command="en">English</el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+
+        <el-dropdown @command="changeStyle">
+          <span class="el-dropdown-link">
+            {{ locale === 'zhCh' ? '风格' : 'Style' }}
+            <el-icon class="el-icon--right">
+              <arrow-down />
+            </el-icon>
+          </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="gold">金盏花</el-dropdown-item>
+              <el-dropdown-item command="lime">青柠</el-dropdown-item>
+              <el-dropdown-item command="blue">极客蓝</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>

@@ -7,7 +7,16 @@ import Menu from '@/components/layout/menu.vue'
 import Header from '@/components/layout/header.vue'
 
 import { useI18n } from 'vue-i18n';
+import { onMounted } from 'vue'
+import useSwitchThemes from './hooks/useSwitchThemes'
 const { locale } = useI18n()
+
+const { switchTheme } = useSwitchThemes()
+
+onMounted(() => {
+  const theme = localStorage.getItem('theme') || 'gold';
+  switchTheme(theme)
+})
 
 const getLocale = () => {
   return locale.value === 'zhCh' ? zhCh : en
