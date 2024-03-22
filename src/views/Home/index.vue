@@ -1,10 +1,13 @@
 <script setup lang='ts'>
 import { ElMessage } from 'element-plus';
 import { onMounted, ref } from 'vue'
-import { test } from 'liwh-personal-function'
+
 
 onMounted(() => {
-  console.log(test('哈哈哈哈'))
+  // isJson('123')
+  // isJson('123')
+  // const a = bindFindKeys(tree, 122, 'name')
+  // console.log(a, 'a')
 })
 
 const clickBtn = () => {

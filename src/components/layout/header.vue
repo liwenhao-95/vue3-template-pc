@@ -3,14 +3,21 @@ import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router'
 import { useDark, useToggle } from '@vueuse/core'
 import useSwitchThemes from '@/hooks/useSwitchThemes';
+import { bindFindKeys } from 'liwh-function-package'
+import { watch, ref } from 'vue'
+import { useAppStore } from '@/stores/app'
+import type { IMenus } from '@/types/types'
+
+const store = useAppStore()
 
 const { locale } = useI18n()
 const router = useRouter()
+const breadcrumbArr = ref<(string | number)[]>([])
 
 const { switchTheme } = useSwitchThemes();
 
 const goBack = () => {
-  console.log('go back')
+  // console.log('go back')
   router.back()
 }
 
@@ -27,11 +34,36 @@ const changeStyle = (command: string) => {
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
+const getTreeData = (data: IMenus[]): IMenus[] => {
+  return data.map(item => {
+    return {
+      ...item,
+      id: item.path,
+      children: item.subMenus.length ? getTreeData(item.subMenus) : []
+    }
+  })
+}
+
+watch(
+  () =>  store.menuActive,
+  () => {
+    const menus = getTreeData(store.menus)
+    breadcrumbArr.value = bindFindKeys(menus, store.menuActive, 'name')
+  }
+)
+
 </script>
 
 <template>
   <el-page-header @back="goBack" class="pageHeader">
     <template #title>{{ $t('back') }}</template>
+    <template #breadcrumb>
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item v-for="item in breadcrumbArr" :key="item">
+          {{ item }}
+        </el-breadcrumb-item>
+      </el-breadcrumb>
+    </template>
     <template #content>
       <span class="title"> {{ $t('title') }} </span>
     </template>
@@ -88,7 +120,9 @@ const toggleDark = useToggle(isDark)
 <style lang='scss' scoped>
 .pageHeader {
   height: 100%;
-  display: flex;
+  :deep(.el-page-header__breadcrumb) {
+    margin-bottom: 8px
+  }
   :deep(.el-page-header__header) {
     width: 100%;
     .title {

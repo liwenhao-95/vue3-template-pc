@@ -59,8 +59,8 @@ const router = createRouter({
 })
 
 router.beforeEach(async (to, from) => {
-  console.log(to, 'to')
-  console.log(from, 'from')
+  // console.log(to, 'to')
+  // console.log(from, 'from')
   const store = useAppStore()
   store.menuActive = to.path
   

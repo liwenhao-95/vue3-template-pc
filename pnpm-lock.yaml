@@ -13,7 +13,7 @@ specifiers:
   element-plus: ^2.6.0
   eslint: ^8.49.0
   eslint-plugin-vue: ^9.17.0
-  liwh-personal-function: ^1.0.0
+  liwh-function-package: file:/Users/liwenhao/workspace/my_work/liwh-personal-function/liwh-function-package-1.0.0.tgz
   npm-run-all2: ^6.1.1
   pinia: ^2.1.7
   prettier: ^3.0.3
@@ -31,7 +31,7 @@ dependencies:
   '@element-plus/icons-vue': 2.3.1_vue@3.4.21
   '@vueuse/core': 10.9.0_vue@3.4.21
   element-plus: 2.6.1_vue@3.4.21
-  liwh-personal-function: 1.0.0
+  liwh-function-package: file:../liwh-personal-function/liwh-function-package-1.0.0.tgz
   pinia: 2.1.7_4kz7whipk5c23xfbqgzv75whe4
   vue: 3.4.21_typescript@5.3.3
   vue-i18n: 9.10.2_vue@3.4.21
@@ -1623,10 +1623,6 @@ packages:
       type-check: 0.4.0
     dev: true
 
-  /liwh-personal-function/1.0.0:
-    resolution: {integrity: sha512-EFOXKuYPIUE7tcP1r1pZb87KApATfC20E8hnjScL/JiMKYxJjJAplgrvXfQI0v0EsPhkSG+/dzSUnq2VvcywQA==}
-    dev: false
-
   /local-pkg/0.4.3:
     resolution: {integrity: sha512-SFppqq5p42fe2qcZQqqEOiVRXl+WCP1MdT6k7BDEW1j++sp5fIY+/fdRQitvKgB5BrBcmrs5m/L0v2FrU5MY1g==}
     engines: {node: '>=14'}
@@ -2392,3 +2388,9 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  file:../liwh-personal-function/liwh-function-package-1.0.0.tgz:
+    resolution: {integrity: sha512-ugTZqbOyFdy6xrKJCZGwShoTEfgodtvIBeqdiU3yYCsGo1TVSr0T2JQXGfHuQ3VtU49km/7zo1pLS6hilq63fw==, tarball: file:../liwh-personal-function/liwh-function-package-1.0.0.tgz}
+    name: liwh-function-package
+    version: 1.0.0
+    dev: false
