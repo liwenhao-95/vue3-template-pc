@@ -1,9 +1,38 @@
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
-  $colors: (
-    'primary': (
-      // 'base': #faad14,
-    ),
+  // $colors: (
+  //   'primary': (
+  //     // 'base': #faad14,
+  //   ),
+  //   'success': (
+  //     'base': #6BC806
+  //   ),
+  //   'warning': (
+  //     'base': #C5D118,
+  //   ),
+  //   'danger': (
+  //     'base': #C80610,
+  //   ),
+  //   'error': (
+  //     'base': #C80610,
+  //   ),
+  //   'info': (
+  //     'base': #909399,
+  //   ),
+  // ),
+  // $button-text-color: (
+  //   'primary': (
+  //     'regular': #ff0000
+  //   )
+  // ),
+  $button: (
+    // text-color: #ff0000,
+    font-weight: 1000,
+    // active-text-color: #ff0000
   ),
+  $button-font-size: (
+    'default': 16px
+  ),
+  // $button-text-color: #ff0000
 );
 
 

@@ -22,46 +22,17 @@ const useSwitchThemes = () => {
     return '#' + _r + _g + _b
   }
 
-  const switchTheme = (command: string) => {
-    switch (command) {
-      case 'gold':
-        setOrangeTheme()
-        break;
-    
-      case 'lime':
-        setGreenTheme()
-        break;
-      case 'blue':
-        setBlueTheme()
-        break;
-      default:
-        break;
-    }
+  const switchTheme = (color: string) => {
+    setCustomTheme(color)
   }
 
-  const setOrangeTheme = () => {
-    setColor('--el-color-primary', '#faad14');
+  const setCustomTheme = (color: string) => {
+    setColor('--el-color-primary', color);
 
     numbers.forEach((num: number) => {
-      setColor(`--el-color-primary-light-${num}`, mix('#faad14', '#ffffff', num * 0.1))
+      setColor(`--el-color-primary-light-${num}`, mix(color, '#ffffff', num * 0.1))
     })
-    setColor('--el-color-primary-dark-2', mix('#faad14', '#000000', 0.2));
-  }
-
-  const setGreenTheme = () => {
-    setColor('--el-color-primary', '#a0d911');
-    numbers.forEach((num: number) => {
-      setColor(`--el-color-primary-light-${num}`, mix('#a0d911', '#ffffff', num * 0.1))
-    })
-    setColor('--el-color-primary-dark-2', mix('#a0d911', '#000000', 0.2));
-  }
-
-  const setBlueTheme = () => {
-    setColor('--el-color-primary', '#2f54eb');
-    numbers.forEach((num: number) => {
-      setColor(`--el-color-primary-light-${num}`, mix('#2f54eb', '#ffffff', num * 0.1))
-    })
-    setColor('--el-color-primary-dark-2', mix('#2f54eb', '#000000', 0.2));
+    setColor('--el-color-primary-dark-2', mix(color, '#000000', 0.2));
   }
 
   const setColor = (colorKey: string, value: string) => {

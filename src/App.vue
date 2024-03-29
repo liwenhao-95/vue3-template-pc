@@ -9,12 +9,13 @@ import Header from '@/components/layout/header.vue'
 import { useI18n } from 'vue-i18n';
 import { onMounted } from 'vue'
 import useSwitchThemes from './hooks/useSwitchThemes'
+import Breadcrumb from '@/components/breadcrumb/index.vue'
 const { locale } = useI18n()
 
 const { switchTheme } = useSwitchThemes()
 
 onMounted(() => {
-  const theme = localStorage.getItem('theme') || 'gold';
+  const theme = localStorage.getItem('themeColor') || '#a0d911';
   switchTheme(theme)
 })
 
@@ -31,10 +32,11 @@ const getLocale = () => {
           <Header></Header>
         </el-header>
         <el-container class="container">
-          <el-aside width="200px">
+          <el-aside width="auto">
             <Menu></Menu>
           </el-aside>
           <el-main class="content">
+            <Breadcrumb />
             <RouterView />
           </el-main>
         </el-container>
@@ -44,6 +46,7 @@ const getLocale = () => {
 </template>
 
 <style scoped lang="scss">
+
 .common-layout {
   height: 100vh;
   .header {

@@ -48,3 +48,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
 }
+
+$text-color: #ff0000;
+
+.el-button {
+  color: $text-color; /* 文字颜色 */
+  // --el-button-text-color: $text-color; /* 文字颜色 */
+}
