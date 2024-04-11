@@ -23,14 +23,14 @@ export const tree = [
             name: '鼓楼区',
             id: 122,
             parentId: 12
-          },
+          }
         ]
       },
       {
         name: '苏州市',
         id: 13,
         parentId: 1
-      },
+      }
     ]
   }
 ]

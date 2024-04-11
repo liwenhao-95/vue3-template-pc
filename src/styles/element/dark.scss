@@ -1,11 +1,5 @@
-
-@forward "element-plus/theme-chalk/src/dark/var.scss" with (
+@forward 'element-plus/theme-chalk/src/dark/var.scss' with (
   $colors: (
-    'primary': (
-      // 'base': pink,
-    ),
-    // 'info': (
-    //   'base': yellow,
-    // ),
-  ),
+    'primary': ()
+  )
 );

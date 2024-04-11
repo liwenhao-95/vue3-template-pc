@@ -1,10 +1,10 @@
-<script setup lang='ts'>
-import { useI18n } from 'vue-i18n';
+<script setup lang="ts">
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import { useDark, useToggle } from '@vueuse/core'
-import useSwitchThemes from '@/hooks/useSwitchThemes';
-import { ref, watch } from 'vue';
-import { onMounted } from 'vue';
+import useSwitchThemes from '@/hooks/useSwitchThemes'
+import { ref, watch } from 'vue'
+import { onMounted } from 'vue'
 
 const { locale } = useI18n()
 const router = useRouter()
@@ -17,7 +17,7 @@ onMounted(() => {
   }
 })
 
-const { switchTheme } = useSwitchThemes();
+const { switchTheme } = useSwitchThemes()
 
 const goBack = () => {
   // console.log('go back')
@@ -25,7 +25,7 @@ const goBack = () => {
 }
 
 const changeLanguage = (command: string) => {
-  locale.value = command;
+  locale.value = command
   localStorage.setItem('language', command)
 }
 
@@ -37,28 +37,25 @@ const changeStyle = (command: string) => {
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
-watch(
-  color,
-  () => {
-    if (color.value) {
-      localStorage.setItem('themeColor', color.value)
-      switchTheme(color.value)
-    } else {
-      color.value = '#a0d911'
-    }
+watch(color, () => {
+  if (color.value) {
+    localStorage.setItem('themeColor', color.value)
+    switchTheme(color.value)
+  } else {
+    color.value = '#a0d911'
   }
-)
+})
 </script>
 
 <template>
-  <el-page-header @back="goBack" class="pageHeader">
+  <el-page-header @back="goBack" class="page-header">
     <template #title>{{ $t('back') }}</template>
     <template #content>
       <span class="title"> {{ $t('title') }} </span>
     </template>
-      
+
     <template #extra>
-      <el-space class="header_right" :size="16">
+      <el-space class="header-right" :size="16">
         <el-switch @change="toggleDark" v-model="isDark">
           <template #active-action>
             <el-icon>
@@ -86,7 +83,7 @@ watch(
           </template>
         </el-dropdown>
 
-        <el-color-picker v-model="color" @active-change	="(v: string) => color=v"/>
+        <el-color-picker v-model="color" @active-change="(v: string) => (color = v)" />
         <!-- <el-dropdown @command="changeStyle">
           <span class="el-dropdown-link">
             {{ locale === 'zhCh' ? '风格' : 'Style' }}
@@ -107,22 +104,27 @@ watch(
   </el-page-header>
 </template>
 
-<style lang='scss' scoped>
-.pageHeader {
+<style lang="scss" scoped>
+.page-header {
   height: 100%;
+
+  /* stylelint-disable-next-line */
   :deep(.el-page-header__header) {
     width: 100%;
     height: 100%;
+
     .title {
       font-weight: 600;
     }
-    .header_right {
+
+    .header-right {
       .el-dropdown-link {
-        cursor: pointer;
-        color: var(--el-color-primary);
         display: flex;
         align-items: center;
+        color: var(--el-color-primary);
+        cursor: pointer;
       }
+
       .el-dropdown-link:focus {
         outline: unset;
       }

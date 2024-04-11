@@ -1,7 +1,7 @@
-import { createI18n } from 'vue-i18n';
+import { createI18n } from 'vue-i18n'
 
-import zhChLocale from './zh-ch';
-import enLocale from './en.js';
+import zhChLocale from './zh-ch'
+import enLocale from './en.js'
 
 const messages = {
   zhCh: {
@@ -19,4 +19,4 @@ const i18n = createI18n({
   globalInjection: true
 })
 
-export default i18n;
+export default i18n

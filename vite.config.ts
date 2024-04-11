@@ -8,6 +8,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/admin/',
   plugins: [
     vue(),
     AutoImport({
@@ -39,6 +40,16 @@ export default defineConfig({
         //  target: 'http://192.168.20.50:1234',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        compact: true,
+        assetFileNames: 'assets/[ext]/[name].[hash][extname]',
+        chunkFileNames: 'js/[name].[hash].js',
+        entryFileNames: 'js/[name].[hash].js'
       }
     }
   }

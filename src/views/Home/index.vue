@@ -28,7 +28,6 @@ const addItem = async () => {
   if (res) {
     getData()
   }
-  
 }
 
 const editItem = (row: any) => {
@@ -62,7 +61,3 @@ const editItem = (row: any) => {
     <el-pagination :total="100" />
   </div>
 </template>
-
-<style lang="scss" scoped>
-
-</style>

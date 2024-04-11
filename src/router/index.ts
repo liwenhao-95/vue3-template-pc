@@ -9,7 +9,7 @@ const ArticelDetail = () => import('@/views/blog/recommendArticle/detail/index.v
 const routes = [
   {
     path: '/',
-    redirect: '/home',
+    redirect: '/home'
   },
   {
     path: '/home',
@@ -38,19 +38,19 @@ const routes = [
           {
             name: 'recommend_article',
             path: '',
-            component: RecommendArticle,
+            component: RecommendArticle
           },
           {
             name: 'articel_detail',
             path: 'articel_detail',
-            component: ArticelDetail,
+            component: ArticelDetail
           }
         ]
       }
     ]
   },
 
-  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
+  { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
 ]
 
 const router = createRouter({
@@ -63,7 +63,6 @@ router.beforeEach(async (to, from) => {
   // console.log(from, 'from')
   const store = useAppStore()
   store.menuActive = to.path
-  
 })
 
 export default router

@@ -2,8 +2,7 @@
 // import { useCssVar } from '@vueuse/core'
 
 const useSwitchThemes = () => {
-
-  const numbers: number[] = [3, 5, 7, 8, 9];
+  const numbers: number[] = [3, 5, 7, 8, 9]
 
   const mix = (color1: string, color2: string, weight: number) => {
     weight = Math.max(Math.min(Number(weight), 1), 0)
@@ -27,16 +26,16 @@ const useSwitchThemes = () => {
   }
 
   const setCustomTheme = (color: string) => {
-    setColor('--el-color-primary', color);
+    setColor('--el-color-primary', color)
 
     numbers.forEach((num: number) => {
       setColor(`--el-color-primary-light-${num}`, mix(color, '#ffffff', num * 0.1))
     })
-    setColor('--el-color-primary-dark-2', mix(color, '#000000', 0.2));
+    setColor('--el-color-primary-dark-2', mix(color, '#000000', 0.2))
   }
 
   const setColor = (colorKey: string, value: string) => {
-    document.documentElement.style.setProperty(colorKey, value);
+    document.documentElement.style.setProperty(colorKey, value)
   }
 
   return {

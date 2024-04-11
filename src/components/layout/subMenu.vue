@@ -1,4 +1,4 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import type { IMenus } from '@/types/types'
 
 defineProps<{
@@ -10,10 +10,10 @@ defineProps<{
   <template v-for="item in data" :key="item.path">
     <el-menu-item :index="item.path" v-if="!item.subMenus.length">
       <el-icon>
-        <component v-if="item.icon" :is="item.icon" ></component>
+        <component v-if="item.icon" :is="item.icon"></component>
       </el-icon>
       <template #title>
-        <div class="menuTitle" :title="item.name">{{ item.name }}</div>
+        <div class="menu-title" :title="item.name">{{ item.name }}</div>
       </template>
     </el-menu-item>
     <template v-else>
@@ -22,7 +22,7 @@ defineProps<{
           <el-icon>
             <component v-if="item.icon" :is="item.icon"></component>
           </el-icon>
-          <span :title="item.name" class="menuTitle">{{ item.name }}</span>
+          <span :title="item.name" class="menu-title">{{ item.name }}</span>
         </template>
         <SubMenu :data="item.subMenus" />
       </el-sub-menu>
@@ -30,8 +30,8 @@ defineProps<{
   </template>
 </template>
 
-<style lang='scss' scoped>
-.menuTitle {
+<style lang="scss" scoped>
+.menu-title {
   overflow: hidden;
   text-overflow: ellipsis;
 }

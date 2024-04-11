@@ -1,6 +1,6 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import { ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
@@ -16,7 +16,3 @@ const details = () => {
     <el-button type="primary" @click="details">详情</el-button>
   </div>
 </template>
-
-<style lang='scss' scoped>
-
-</style>

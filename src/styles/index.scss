@@ -1,5 +1,5 @@
 // import dark theme
-@use "element-plus/theme-chalk/src/dark/css-vars.scss" as *;
+@use 'element-plus/theme-chalk/src/dark/css-vars.scss' as *;
 
 html,
 body,
@@ -26,30 +26,33 @@ th,
 td,
 tr,
 b {
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
+
 fieldset,
 img {
   border: 0;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 em {
   font-style: normal;
 }
 
 body {
-  font-family: Inter, system-ui, Avenir, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
-    "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  margin: 0;
+  font-family: Inter, system-ui, Avenir, 'Helvetica Neue', Helvetica, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0;
 }
 
-$text-color: #ff0000;
+$text-color: #f00;
 
 .el-button {
   color: $text-color; /* 文字颜色 */

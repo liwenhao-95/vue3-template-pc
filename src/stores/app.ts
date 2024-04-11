@@ -19,9 +19,23 @@ export const useAppStore = defineStore('app', () => {
           path: '/blog/test_level',
           icon: Notebook,
           parentId: '/blog',
-          subMenus: [{ parentId: '/blog/test_level', name: '最后一层测试长度最后一层测试长度', path: '/blog/test_level/last_level', icon: Notebook, subMenus: [] }]
+          subMenus: [
+            {
+              parentId: '/blog/test_level',
+              name: '最后一层测试长度最后一层测试长度',
+              path: '/blog/test_level/last_level',
+              icon: Notebook,
+              subMenus: []
+            }
+          ]
         },
-        { parentId: '/blog', name: '好文推荐', path: '/blog/recommend_article', icon: Reading, subMenus: [] }
+        {
+          parentId: '/blog',
+          name: '好文推荐',
+          path: '/blog/recommend_article',
+          icon: Reading,
+          subMenus: []
+        }
       ]
     },
     { parentId: 0, name: '我的', icon: User, path: '/mine', subMenus: [] }

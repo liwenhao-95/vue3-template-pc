@@ -6,7 +6,7 @@ import en from 'element-plus/es/locale/lang/en'
 import Menu from '@/components/layout/menu.vue'
 import Header from '@/components/layout/header.vue'
 
-import { useI18n } from 'vue-i18n';
+import { useI18n } from 'vue-i18n'
 import { onMounted } from 'vue'
 import useSwitchThemes from './hooks/useSwitchThemes'
 import Breadcrumb from '@/components/breadcrumb/index.vue'
@@ -15,7 +15,7 @@ const { locale } = useI18n()
 const { switchTheme } = useSwitchThemes()
 
 onMounted(() => {
-  const theme = localStorage.getItem('themeColor') || '#a0d911';
+  const theme = localStorage.getItem('themeColor') || '#a0d911'
   switchTheme(theme)
 })
 
@@ -46,15 +46,17 @@ const getLocale = () => {
 </template>
 
 <style scoped lang="scss">
-
 .common-layout {
   height: 100vh;
+
   .header {
     background-color: var(--vt-c-white);
     border-bottom: 1px solid var(--el-menu-border-color);
   }
+
   .container {
     height: calc(100vh - 60px);
+
     .content {
       padding: 16px;
       margin: 0 8px;

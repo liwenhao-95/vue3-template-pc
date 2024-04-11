@@ -1,13 +1,10 @@
-<script setup lang='ts'>
+<script setup lang="ts">
 import { ref } from 'vue'
+const test = ref(404)
 </script>
 
 <template>
-  <div>
-    404
+  <div class="">
+    {{ test }}
   </div>
 </template>
-
-<style lang='scss' scoped>
-
-</style>
