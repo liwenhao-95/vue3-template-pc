@@ -65,7 +65,7 @@ const expand = () => {
   width: 200px;
 }
 
-.buttom{
+.buttom {
   position: relative;
   box-sizing: border-box;
   height: 48px;
