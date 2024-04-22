@@ -33,13 +33,12 @@ const execScript = async () => {
   console.log('start...')
   const check = await startExec('git status --porcelain')
   console.log(check, 'check')
-  let name = ''
+  const name = (await startExec('git branch --show-current')).stdout?.trim() as string
   if (!check.success) return
 
   if (check.success && check.stdout) {
     await startExec('git stash')
 
-    name = (await startExec('git branch --show-current')).stdout?.trim() as string
   }
 
   console.log('切换到test')
