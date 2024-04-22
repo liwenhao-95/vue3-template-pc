@@ -28,6 +28,7 @@ const startExec = (command: string, second?: number): Promise<Result> => {
 
 
 const execScript = async () => {
+  console.log('start...')
   const check = await startExec('git status --porcelain')
   console.log(check, 'check')
   let name = ''
