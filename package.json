@@ -13,7 +13,8 @@
     "format": "prettier --write src/",
     "stylelint": "stylelint \"src/**/*.{css,scss,vue}\"",
     "stylelint:fix": "stylelint \"src/**/*.{css,scss,vue}\" --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "exec": "tsx script.ts"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
