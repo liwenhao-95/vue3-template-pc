@@ -4,25 +4,23 @@ interface Result {
   stdout?: string
   success: boolean
 }
-const startExec = (command: string, second?: number): Promise<Result> => {
+const startExec = (command: string): Promise<Result> => {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      exec(command, async (error, stdout) => {
-        if (error) {
-          console.error(error)
-          return reject({
-            success: false,
-            error
-          })
-        }
-        if (stdout) {
-          return resolve({
-            success: true,
-            stdout
-          })
-        }
-      })
-    }, second || 0);
+    exec(command, async (error, stdout) => {
+      if (error) {
+        console.error(error)
+        return reject({
+          success: false,
+          error
+        })
+      }
+      if (stdout) {
+        return resolve({
+          success: true,
+          stdout
+        })
+      }
+    })
   })
 }
 
