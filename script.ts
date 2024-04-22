@@ -49,7 +49,8 @@ const execScript = async () => {
   await startExec('git branch -D test')
 
   console.log('释放')
-  await startExec('git stash pop')
+  const pop = await startExec('git stash pop')
 
+  console.log(pop, 'pop')
 }
 execScript()
