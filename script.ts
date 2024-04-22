@@ -20,6 +20,10 @@ const startExec = (command: string): Promise<Result> => {
           stdout
         })
       }
+      return resolve({
+        success: true,
+        stdout
+      })
     })
   })
 }
