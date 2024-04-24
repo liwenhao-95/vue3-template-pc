@@ -17,7 +17,7 @@ const getData = () => {
 }
 
 const addItem = async () => {
-  // ElMessage('This is a message.')
+  ElMessage('This is a message.')
   const params = {
     id: '4',
     title: 'The Modern Sound of Betty Carter',

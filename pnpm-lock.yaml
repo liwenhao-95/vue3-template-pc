@@ -11,6 +11,9 @@ specifiers:
   '@vue/tsconfig': ^0.5.1
   '@vueuse/core': ^10.9.0
   axios: ^1.6.8
+  chalk: ^5.3.0
+  consola: ^3.2.3
+  cross-env: ^7.0.3
   element-plus: ^2.6.0
   eslint: ^8.49.0
   eslint-plugin-vue: ^9.17.0
@@ -56,6 +59,9 @@ devDependencies:
   '@vue/eslint-config-prettier': 8.0.0_mgor33v4u2pvs5m36tuva25tpy
   '@vue/eslint-config-typescript': 12.0.0_vcchb6xa2dxgwq656lqpjp7mr4
   '@vue/tsconfig': 0.5.1
+  chalk: 5.3.0
+  consola: 3.2.3
+  cross-env: 7.0.3
   eslint: 8.57.0
   eslint-plugin-vue: 9.23.0_eslint@8.57.0
   husky: 9.0.11
@@ -1194,6 +1200,11 @@ packages:
       supports-color: 7.2.0
     dev: true
 
+  /chalk/5.3.0:
+    resolution: {integrity: sha512-dLitG79d+GV1Nb/VYcCDFivJeK1hiukt9QjRNVOsUtTy1rR1YJsmpGGTZ3qJos+uw7WmWF4wUwBd9jxjocFC2w==}
+    engines: {node: ^12.17.0 || ^14.13 || >=16.0.0}
+    dev: true
+
   /chokidar/3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
@@ -1249,6 +1260,11 @@ packages:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
+  /consola/3.2.3:
+    resolution: {integrity: sha512-I5qxpzLv+sJhTVEoLYNcTW+bThDCPsit0vLNKShZx6rLtpilNpmmeTPaeqJb9ZE9dV3DGaeby6Vuhrw38WjeyQ==}
+    engines: {node: ^14.18.0 || >=16.10.0}
+    dev: true
+
   /cosmiconfig/8.3.6_typescript@5.3.3:
     resolution: {integrity: sha512-kcZ6+W5QzcJ3P1Mt+83OUv/oHFqZHIx8DuxG6eZ5RGMERoLqp4BuGjhHLYGK+Kf5XVkQvqBSmAy/nGWN3qDgEA==}
     engines: {node: '>=14'}
@@ -1263,6 +1279,14 @@ packages:
       parse-json: 5.2.0
       path-type: 4.0.0
       typescript: 5.3.3
+    dev: true
+
+  /cross-env/7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn/7.0.3:
