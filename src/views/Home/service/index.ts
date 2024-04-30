@@ -1,16 +1,16 @@
 import request from '@/request'
 
-export const getAlbums = (params?: any) => {
+export const getBooks = (params?: any) => {
   return request({
-    url: `/api/albums/2`,
+    url: `/api/user/books`,
     method: 'get',
     params
   })
 }
 
-export const postAlbums = (data: any) => {
+export const postBooks = (data: any) => {
   return request({
-    url: `/api/albums`,
+    url: `/api/user/books`,
     method: 'post',
     data
   })

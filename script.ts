@@ -3,14 +3,6 @@ import consola from 'consola'
 import chalk from 'chalk'
 import util from 'util'
 
-interface Env {
-  dev: Params,
-  prod: Params
-}
-
-interface Params {
-  name: string
-}
 interface Result {
   success: boolean
   error?: string | Buffer
@@ -25,7 +17,6 @@ const startExec = async (command: string): Promise<Result> => {
     const { stdout, stderr } = await execPromise(command);
     // console.log('stdout:', stdout);
     
-    consola.info(chalk.blue(stdout, 'stdout'))
     return {
       success: true,
       stdout
@@ -41,62 +32,34 @@ const startExec = async (command: string): Promise<Result> => {
 
 
 const execScript = async () => {
-  const env: Env = {
-    dev: {name: ''},
-    prod: {name: ''}
+  
+  consola.start(chalk.green('start...'))
+  const check = await startExec('git status --porcelain')
+  const name = (await startExec('git branch --show-current')).stdout?.trim() as string
+  if (!check.success) return
+
+  let isCache = false
+  if (check.success && check.stdout) {
+    await startExec('git stash -u')
+    isCache = true
   }
 
-  env[process.env.NODE_ENV as string]
-  consola.info(chalk.green(process.env.NODE_ENV, 'process.env.NODE_ENV!'))
-  
-  // consola.start(chalk.green('start...'))
-  // const check = await startExec('git status --porcelain')
-  // const name = (await startExec('git branch --show-current')).stdout?.trim() as string
-  // if (!check.success) return
+  consola.info(chalk.blue('change test branch'))
+  await startExec('git checkout -b test origin/test')
 
-  // let isCache = false
-  // if (check.success && check.stdout) {
-  //   await startExec('git stash')
-  //   isCache = true
-  // }
+  await startExec('pnpm run build')
 
-  // consola.info(chalk.blue('change test branch'))
-  // await startExec('git checkout -b test origin/develop')
+  consola.info(chalk.blue(`change ${name} branch`))
+  await startExec(`git checkout -f ${name}`)
 
-  // consola.info(chalk.blue(`change ${name} branch`))
-  // await startExec(`git checkout -f ${name}`)
+  consola.info(chalk.blue('delete test branch'))
+  await startExec('git branch -D test')
 
-  // consola.info(chalk.blue('delete test branch'))
-  // await startExec('git branch -D test')
+  if (isCache) {
+    consola.info(chalk.blue('release'))
+    await startExec('git stash pop')
+    consola.success(chalk.green('finish!'))
+  }
 
-  // if (isCache) {
-  //   consola.info(chalk.blue('release'))
-  //   const pop = await startExec('git stash pop')
-  //   consola.success(chalk.green(pop, 'pop'))
-  //   consola.success(chalk.green('finish!'))
-  // }
-  // await startExec('git checkout -b test origin/develop').catch(err => {
-  //   consola.info(chalk.red(err))
-  //   return
-  // })
-  // const res = await startExec('git checkout -b test1 origin/develop')
-  // consola.info(chalk.green(res, 'res'))
-  // res.error?.toString().indexOf('')
-  // await startExec('git checkout -b test origin/develop').then((res) => {
-  //   consola.info(chalk.blue(res, 'testres'))
-  // }, (err) => {
-  //   consola.error(chalk.red(err, 'testerr'))
-  // })
-  // consola.info(chalk.white(a, 'a!'))
-  consola.info(chalk.white('end!'))
-  // await startExec('git checkout -b test origin/develop')
-  // startExec('git checkout -b test origin/develop').then(res => {
-  //   consola.info(chalk.green(res, 'res'))
-  // }, (err) => {
-  //   startExec('git stash pop')
-  //   consola.error(chalk.bgBlue(err.success, 'err.success'))
-  //   consola.error(chalk.bgBlue(err.error, 'err.error'))
-  //   consola.error(chalk.bgBlue(err.stdout, 'err.stdout'))
-  // })
 }
 execScript()

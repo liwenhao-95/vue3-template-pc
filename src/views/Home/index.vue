@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ElMessage } from 'element-plus'
 import { onMounted, ref } from 'vue'
-import { getAlbums, postAlbums } from './service/index'
+import { getBooks, postBooks } from './service/index'
 
 const data = ref([])
 
@@ -10,21 +9,23 @@ onMounted(() => {
 })
 
 const getData = () => {
-  getAlbums().then((res: any) => {
+  getBooks().then((res: any) => {
     console.log(res, 'res')
     data.value = res
   })
 }
 
 const addItem = async () => {
-  ElMessage('This is a message.')
   const params = {
-    id: '4',
-    title: 'The Modern Sound of Betty Carter',
-    artist: 'Betty Carter',
-    price: 49.99
+    // id: '4',
+    // title: 'The Modern Sound of Betty Carter',
+    // artist: 'Betty Carter',
+    // price: 49.99
+    author: 'Paul Barry',
+    book_name: 'Head-First Python',
+    descrip: '帮助读者快速掌握Python编程的基础知识，并使用内置函数和数据结构。'
   }
-  const res = await postAlbums(params)
+  const res = await postBooks(params)
   if (res) {
     getData()
   }
@@ -46,10 +47,10 @@ const editItem = (row: any) => {
 
     <el-table :data="data" style="width: 100%">
       <el-table-column prop="id" label="Id" width="180" />
-      <el-table-column prop="artist" label="Artist" />
-      <el-table-column prop="title" label="Title" />
-      <el-table-column prop="price" label="Price" />
-      <el-table-column label="Operations">
+      <el-table-column prop="author" label="作者" />
+      <el-table-column prop="book_name" label="书名" />
+      <el-table-column prop="describ" label="描述" show-overflow-tooltip />
+      <el-table-column label="操作">
         <template #default="{ row }">
           <!-- <el-button link type="primary" size="small" @click="handleClick"
             >Detail</el-button
