@@ -5,51 +5,50 @@ const NotFound = () => import('@/components/notFound.vue')
 const Home = () => import('@/views/home/index.vue')
 const RecommendArticle = () => import('@/views/blog/recommendArticle/index.vue')
 const ArticelDetail = () => import('@/views/blog/recommendArticle/detail/index.vue')
+const Login = () => import('@/views/login/index.vue')
+const Layout = () => import('@/components/layout/layout.vue')
 
 const routes = [
   {
     path: '/',
-    redirect: '/home'
-  },
-  {
-    path: '/home',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/blog',
-    name: 'blog',
+    redirect: '/home',
+    name: 'layout',
+    component: Layout,
     children: [
       {
-        path: 'test_level',
-        name: 'test_level',
+        path: '/home',
+        name: 'home',
+        component: Home
+      },
+      {
+        path: '/blog',
+        name: 'blog',
         children: [
           {
-            path: 'last_level',
-            name: 'last_level',
-            component: Home
+            path: 'recommend_article',
+            name: 'recommend_article',
+            children: [
+              {
+                name: 'recommend_article',
+                path: '',
+                component: RecommendArticle
+              },
+              {
+                name: 'articel_detail',
+                path: 'articel_detail',
+                component: ArticelDetail
+              }
+            ]
           }
         ]
       },
-      {
-        path: 'recommend_article',
-        name: 'recommend_article',
-        children: [
-          {
-            name: 'recommend_article',
-            path: '',
-            component: RecommendArticle
-          },
-          {
-            name: 'articel_detail',
-            path: 'articel_detail',
-            component: ArticelDetail
-          }
-        ]
-      }
     ]
   },
-
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound }
 ]
 

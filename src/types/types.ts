@@ -2,6 +2,11 @@ export interface IMenus {
   parentId: number | string
   name: string
   path: string
-  icon: any
+  icon: string
   subMenus: IMenus[]
+}
+
+export interface Tree {
+  [key: string]: any;
+  // children?: T[]
 }

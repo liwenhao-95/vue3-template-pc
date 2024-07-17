@@ -2,6 +2,8 @@ import axios, { type InternalAxiosRequestConfig, type AxiosResponse } from 'axio
 import qs from 'qs'
 import router from '@/router'
 import { ElMessage } from 'element-plus'
+import { useAppStore } from '@/stores/app'
+
 
 const instance = axios.create({
   baseURL: '/',
@@ -26,10 +28,20 @@ instance.interceptors.request.use(
 // http response 拦截器
 instance.interceptors.response.use(
   (response: AxiosResponse) => {
+    const store = useAppStore()
+
     if (response.data?.code === 401) {
+      if (!store.isToken) {
+        ElMessage.error(response.data?.message ?? 'token失效')
+      }
+      store.isToken = true
       router.push('/login')
+    } else if (response.data?.code !== 200) {
+      ElMessage.error(response.data?.message ?? '失败')
+    } else {
+      store.isToken = false
     }
-    return response.data
+    return response
   },
   async (error: any) => {
     const { response } = error

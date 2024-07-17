@@ -5,6 +5,7 @@ import { useDark, useToggle } from '@vueuse/core'
 import useSwitchThemes from '@/hooks/useSwitchThemes'
 import { ref, watch } from 'vue'
 import { onMounted } from 'vue'
+import Breadcrumb from '@/components/breadcrumb/index.vue'
 
 const { locale } = useI18n()
 const router = useRouter()
@@ -29,11 +30,6 @@ const changeLanguage = (command: string) => {
   localStorage.setItem('language', command)
 }
 
-const changeStyle = (command: string) => {
-  localStorage.setItem('theme', command)
-  switchTheme(command)
-}
-
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
@@ -51,7 +47,8 @@ watch(color, () => {
   <el-page-header @back="goBack" class="page-header">
     <template #title>{{ $t('back') }}</template>
     <template #content>
-      <span class="title"> {{ $t('title') }} </span>
+      <!-- <span class="title"> {{ $t('title') }} </span> -->
+      <Breadcrumb />
     </template>
 
     <template #extra>
@@ -84,21 +81,6 @@ watch(color, () => {
         </el-dropdown>
 
         <el-color-picker v-model="color" @active-change="(v: string) => (color = v)" />
-        <!-- <el-dropdown @command="changeStyle">
-          <span class="el-dropdown-link">
-            {{ locale === 'zhCh' ? '风格' : 'Style' }}
-            <el-icon class="el-icon--right">
-              <arrow-down />
-            </el-icon>
-          </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item command="gold">金盏花</el-dropdown-item>
-              <el-dropdown-item command="lime">青柠</el-dropdown-item>
-              <el-dropdown-item command="blue">极客蓝</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown> -->
       </el-space>
     </template>
   </el-page-header>

@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 
 import { useAppStore } from '@/stores/app'
+import { nav } from '@/utils/constants'
 import SubMenu from './subMenu.vue'
 
 const store = useAppStore()
@@ -45,7 +46,7 @@ const expand = () => {
     @select="selectMenu"
     router
   >
-    <SubMenu :data="store.menus" />
+    <SubMenu :data="nav" />
   </el-menu>
   <div class="buttom" ref="bottomRef">
     <el-icon :size="20" @click="expand" :class="isCollapse ? 'collapse' : ''">

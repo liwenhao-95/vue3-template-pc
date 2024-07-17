@@ -1,17 +1,7 @@
-import request from '@/request'
+import httpClient from '@/request/httpClient'
 
-export const getBooks = (params?: any) => {
-  return request({
-    url: `/api/user/books`,
-    method: 'get',
-    params
-  })
-}
+export const getBooks = (params?: any) => httpClient.get<any>('/api/user/books', params)
 
-export const postBooks = (data: any) => {
-  return request({
-    url: `/api/user/books`,
-    method: 'post',
-    data
-  })
-}
+export const postBooks = (data: any) => httpClient.post('/api/user/books', data)
+
+export const deleteBooks = (id: string | number) => httpClient.del(`/api/user/books?id=${id}`)

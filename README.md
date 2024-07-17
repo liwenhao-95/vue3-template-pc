@@ -1,46 +1,30 @@
-# my-vue-project
+# 基于Vite Vue3 Typescript 的初始模板项目
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-pnpm install
+## 使用
+``` sh
+    pnpm install
+    pnpm run dev
 ```
+可以查看简单的页面
 
-### Compile and Hot-Reload for Development
+## 格式化插件
+- :white_check_mark: **Eslint**
+- :white_check_mark: **Stylelint**
+- :white_check_mark: **Prettier**
 
-```sh
-pnpm dev
-```
+## Git Hooks
+- :dog: **husky**
+- :smile: **lint-staged**
 
-### Type-Check, Compile and Minify for Production
+## 状态管理
+- :pineapple: **Pinia**
 
-```sh
-pnpm build
-```
+## UI库
+- :cyclone: **Element Plus**
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+## 功能
+- :white_check_mark: **支持国际化配置**
+- :white_check_mark: **支持自定义主题色**
+- :white_check_mark: **支持深色模式**
+- :white_check_mark: **含有简单的axios请求封装**
+- :white_check_mark: **components下带有不定高度的展开动画组件**
