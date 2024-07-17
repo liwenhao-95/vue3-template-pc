@@ -1,1 +1,9 @@
-pnpm run stylelint
+#!/usr/bin/env sh
+
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "lint start..."
+
+# npx lint-staged
+
+echo "lint end..."
