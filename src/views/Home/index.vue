@@ -47,7 +47,7 @@ const confirm = (row: any) => {
 <template>
   <div class="home">
     <div class="btns">
-      <el-button type="primary" @click="addItem">新增</el-button>
+      <el-button type="primary" @click="addItem"> 新增 </el-button>
     </div>
 
     <div class="table">
@@ -67,10 +67,10 @@ const confirm = (row: any) => {
             <!-- <el-button link type="primary" size="small" @click="handleClick"
               >Detail</el-button
             > -->
-            <el-button link type="primary" size="small" @click="editItem(row)">编辑</el-button>
+            <el-button link type="primary" size="small" @click="editItem(row)"> 编辑 </el-button>
             <el-popconfirm title="确认删除吗?" @confirm="confirm(row)">
               <template #reference>
-                <el-button link type="danger" size="small">删除</el-button>
+                <el-button link type="danger" size="small"> 删除 </el-button>
               </template>
             </el-popconfirm>
           </template>
@@ -85,17 +85,20 @@ const confirm = (row: any) => {
 
 <style lang="scss" scoped>
 .home {
-  height: 100%;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
   .btns {
     margin-left: auto;
   }
+
   .table {
-    overflow: hidden;
     flex: 1;
+    overflow: hidden;
   }
+
   .pagination {
     margin-top: 8px;
   }

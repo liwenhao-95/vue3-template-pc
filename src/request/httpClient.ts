@@ -2,7 +2,6 @@ import { ElMessage } from 'element-plus'
 import instance from './index'
 import type { AxiosRequestConfig } from 'axios'
 
-
 export interface Response<T = any> {
   code: number
   message: string
@@ -12,9 +11,11 @@ export interface Response<T = any> {
 export interface PostBodyModel {}
 
 class HttpClient {
-  constructor() {}
-
-  async get<T>(api: string, params?: Record<string, any>, options?: AxiosRequestConfig): Promise<T> {
+  async get<T>(
+    api: string,
+    params?: Record<string, any>,
+    options?: AxiosRequestConfig
+  ): Promise<T> {
     return await new Promise((resolve, reject) => {
       instance.get<Response>(`${api}`, { params, ...options }).then((res) => {
         if (options?.responseType === 'blob' && res.status === 200) {
@@ -39,7 +40,7 @@ class HttpClient {
       })
     })
   }
-  
+
   async del<T>(api: string, params?: Record<string, any>): Promise<T> {
     return await new Promise((resolve, reject) => {
       instance.delete<Response>(api, params).then((res) => {

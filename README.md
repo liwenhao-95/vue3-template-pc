@@ -5,11 +5,10 @@
     pnpm install
     pnpm run dev
 ```
-可以查看简单的页面
 
 ## 格式化插件
-- :white_check_mark: **Eslint**
-- :white_check_mark: **Stylelint**
+- :white_check_mark: **Eslint v9.7**
+- :white_check_mark: **Stylelint v16.7**
 - :white_check_mark: **Prettier**
 
 ## Git Hooks

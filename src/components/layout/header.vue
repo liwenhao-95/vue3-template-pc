@@ -44,8 +44,10 @@ watch(color, () => {
 </script>
 
 <template>
-  <el-page-header @back="goBack" class="page-header">
-    <template #title>{{ $t('back') }}</template>
+  <el-page-header class="page-header" @back="goBack">
+    <template #title>
+      {{ $t('back') }}
+    </template>
     <template #content>
       <!-- <span class="title"> {{ $t('title') }} </span> -->
       <Breadcrumb />
@@ -53,7 +55,7 @@ watch(color, () => {
 
     <template #extra>
       <el-space class="header-right" :size="16">
-        <el-switch @change="toggleDark" v-model="isDark">
+        <el-switch v-model="isDark" @change="toggleDark">
           <template #active-action>
             <el-icon>
               <Moon />
@@ -74,8 +76,8 @@ watch(color, () => {
           </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item command="zhCh">中文</el-dropdown-item>
-              <el-dropdown-item command="en">English</el-dropdown-item>
+              <el-dropdown-item command="zhCh"> 中文 </el-dropdown-item>
+              <el-dropdown-item command="en"> English </el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>

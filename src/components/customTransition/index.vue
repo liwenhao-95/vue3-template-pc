@@ -7,7 +7,7 @@
     @leave="leave"
     @after-leave="afterLeave"
   >
-    <slot></slot>
+    <slot />
   </Transition>
 </template>
 
@@ -15,7 +15,7 @@
 const beforeLeave = (el: Element) => {
   const elHtml = el as HTMLElement
   elHtml.style.transition = '0.3s height ease-in-out'
-	elHtml.style.overflow = 'hidden'
+  elHtml.style.overflow = 'hidden'
 }
 
 const leave = (el: Element) => {
@@ -36,7 +36,7 @@ const afterLeave = (el: Element) => {
 const beforeEnter = (el: Element) => {
   const elHtml = el as HTMLElement
   elHtml.style.transition = '0.3s height ease-in-out'
-	elHtml.style.overflow = 'hidden'
+  elHtml.style.overflow = 'hidden'
 }
 
 const enter = (el: Element) => {
@@ -48,7 +48,7 @@ const enter = (el: Element) => {
   elHtml.style.height = endWidth
 }
 
-const afterEnter =  (el: Element) => {
+const afterEnter = (el: Element) => {
   const elHtml = el as HTMLElement
   elHtml.style.height = ''
   elHtml.style.transition = ''

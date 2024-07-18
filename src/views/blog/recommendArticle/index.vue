@@ -11,6 +11,6 @@ const details = () => {
 <template>
   <div>
     <h1>好文推荐</h1>
-    <el-button type="primary" @click="details">详情</el-button>
+    <el-button type="primary" @click="details"> 详情 </el-button>
   </div>
 </template>

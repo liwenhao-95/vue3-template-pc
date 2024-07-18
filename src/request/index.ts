@@ -4,7 +4,6 @@ import router from '@/router'
 import { ElMessage } from 'element-plus'
 import { useAppStore } from '@/stores/app'
 
-
 const instance = axios.create({
   baseURL: '/',
   timeout: 30 * 1000,

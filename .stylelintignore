@@ -2,3 +2,5 @@
 /dist/*
 /html/*
 /public/*
+
+components.d.ts
