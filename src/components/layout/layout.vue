@@ -28,11 +28,11 @@ const getLocale = () => {
     <div class="common-layout">
       <el-container>
         <el-header class="header">
-          <Header></Header>
+          <Header />
         </el-header>
         <el-container class="container">
           <el-aside width="auto">
-            <Menu></Menu>
+            <Menu />
           </el-aside>
           <el-main class="content">
             <!-- <Breadcrumb /> -->
@@ -58,6 +58,7 @@ const getLocale = () => {
 
     .content {
       padding: 16px;
+
       // margin: 0 8px;
       overflow: hidden;
       background: var(--vt-c-white);

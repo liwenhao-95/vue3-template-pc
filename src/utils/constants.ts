@@ -1,7 +1,13 @@
-import type { IMenus } from "@/types/types";
+import type { IMenus } from '@/types/types'
 
 export const nav: IMenus[] = [
-  { parentId: 0, name: '首页', icon: 'HomeFilled', path: '/home', subMenus: [] },
+  {
+    parentId: 0,
+    name: '首页',
+    icon: 'HomeFilled',
+    path: '/home',
+    subMenus: []
+  },
   {
     name: '博客',
     icon: 'Notebook',

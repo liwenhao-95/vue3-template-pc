@@ -41,7 +41,7 @@ const routes = [
             ]
           }
         ]
-      },
+      }
     ]
   },
   {
@@ -57,7 +57,7 @@ const router = createRouter({
   routes
 })
 
-router.beforeEach(async (to, from) => {
+router.beforeEach(async (to) => {
   // console.log(to, 'to')
   // console.log(from, 'from')
   const store = useAppStore()

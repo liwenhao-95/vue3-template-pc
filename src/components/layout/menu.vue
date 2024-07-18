@@ -41,17 +41,17 @@ const expand = () => {
     :default-active="store.menuActive"
     class="menu"
     :collapse="isCollapse"
+    router
     @open="handleOpen"
     @close="handleClose"
     @select="selectMenu"
-    router
   >
     <SubMenu :data="nav" />
   </el-menu>
-  <div class="buttom" ref="bottomRef">
-    <el-icon :size="20" @click="expand" :class="isCollapse ? 'collapse' : ''">
-      <Fold v-if="!isCollapse"></Fold>
-      <Expand v-else></Expand>
+  <div ref="bottomRef" class="buttom">
+    <el-icon :size="20" :class="isCollapse ? 'collapse' : ''" @click="expand">
+      <Fold v-if="!isCollapse" />
+      <Expand v-else />
     </el-icon>
   </div>
 </template>

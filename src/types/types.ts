@@ -7,6 +7,6 @@ export interface IMenus {
 }
 
 export interface Tree {
-  [key: string]: any;
+  [key: string]: any
   // children?: T[]
 }
