@@ -1,6 +1,9 @@
-#!/usr/bin/env sh
+# echo "lint start..."
 
-. "$(dirname -- "$0")/_/husky.sh"
+# pnpm run 
+
+#!/usr/bin/env sh
+. "$(dirname "$0")/_/husky.sh"
 
 echo "lint start..."
 
